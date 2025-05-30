@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
@@ -12,7 +11,7 @@ import {
   SidebarContent,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
-import { Leaf, LayoutDashboard, Lightbulb, GalleryThumbnails, MapPin } from 'lucide-react';
+import { Leaf, LayoutDashboard, Lightbulb, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { ClientSidebarNav } from '@/components/layout/ClientSidebarNav';
 
@@ -35,7 +34,6 @@ const geistMono = Geist_Mono({
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/material-suggestion', label: 'Material Suggestion', icon: Lightbulb },
-  { href: '/project-gallery', label: 'Project Gallery', icon: GalleryThumbnails },
   { href: '/local-resources', label: 'Local Resources', icon: MapPin },
 ];
 
