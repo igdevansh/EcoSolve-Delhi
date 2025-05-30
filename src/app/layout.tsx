@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -24,10 +26,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'EcoSolve: Designing a Plastic-Free Tomorrow',
-  description: 'An application to help reduce plastic use and promote sustainable alternatives.',
-};
+// Removed metadata export as it's not allowed in client components.
+// export const metadata: Metadata = {
+//   title: 'EcoSolve: Designing a Plastic-Free Tomorrow',
+//   description: 'An application to help reduce plastic use and promote sustainable alternatives.',
+// };
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
