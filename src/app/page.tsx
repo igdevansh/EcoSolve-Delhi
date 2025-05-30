@@ -59,18 +59,18 @@ export default function DashboardPage() {
         prevMetrics.map(metric => {
           let newValue = metric.value;
           let newChange = metric.change;
-          if (metric.id === '1' && typeof metric.value === 'number') { // Monthly Plastic Waste
+          if (metric.id === '1' && typeof metric.value === 'number') { // Delhi: Monthly Plastic Waste
             const randomFactor = (Math.random() - 0.5) * 50; // Fluctuate by up to +/- 25kg
             newValue = Math.max(500, Math.round(metric.value + randomFactor));
             newChange = `${randomFactor > 0 ? '+' : ''}${Math.round(randomFactor / metric.value * 100)}%`;
-          } else if (metric.id === '2' && typeof metric.value === 'string') { // Recycling Rate
+          } else if (metric.id === '2' && typeof metric.value === 'string') { // Delhi: Recycling Rate
             const currentValue = parseFloat(metric.value);
             const randomFactor = (Math.random() - 0.5) * 2; // Fluctuate by up to +/- 1%
             newValue = Math.min(100, Math.max(0, parseFloat((currentValue + randomFactor).toFixed(1)))).toString();
             newChange = `${randomFactor > 0 ? '+' : ''}${randomFactor.toFixed(1)}%`;
-          } else if (metric.id === '3' && typeof metric.value === 'number') { // Alternatives Implemented
+          } else if (metric.id === '3' && typeof metric.value === 'number') { // Delhi: Eco Initiatives
              newValue = metric.value + (Math.random() > 0.8 ? 1 : 0); // Occasionally increment
-          } else if (metric.id === '4' && typeof metric.value === 'string') { // Reduction Goal Progress
+          } else if (metric.id === '4' && typeof metric.value === 'string') { // Delhi: Waste Reduction Goal
             const currentValue = parseFloat(metric.value);
             const randomFactor = (Math.random()) * 0.5; // Fluctuate by up to +/- 0.5%
             newValue = Math.min(100, Math.max(0, parseFloat((currentValue + randomFactor).toFixed(1)))).toString();
@@ -105,7 +105,7 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-3xl font-bold tracking-tight">EcoSolve Dashboard</h1>
+      <h1 className="text-3xl font-bold tracking-tight">EcoSolve Delhi Dashboard</h1>
       
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {wasteMetrics.map((metric) => (
@@ -133,8 +133,8 @@ export default function DashboardPage() {
       <section className="grid gap-6 md:grid-cols-2">
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle>Plastic Waste by Type</CardTitle>
-            <CardDescription>Breakdown of commonly found plastic types in local waste.</CardDescription>
+            <CardTitle>Delhi: Plastic Waste by Type</CardTitle>
+            <CardDescription>Breakdown of commonly found plastic types in Delhi's waste.</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfigWasteType} className="mx-auto aspect-square max-h-[300px]">
@@ -153,8 +153,8 @@ export default function DashboardPage() {
 
         <Card className="shadow-lg">
           <CardHeader>
-            <CardTitle>Waste Reduction Progress</CardTitle>
-            <CardDescription>Monthly progress towards plastic waste reduction targets (in kg).</CardDescription>
+            <CardTitle>Delhi: Waste Reduction Progress</CardTitle>
+            <CardDescription>Monthly progress towards plastic waste reduction targets in Delhi (in kg).</CardDescription>
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfigReduction} className="h-[300px] w-full">

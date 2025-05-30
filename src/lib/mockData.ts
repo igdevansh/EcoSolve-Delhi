@@ -1,5 +1,5 @@
 import type { Project, LocalResource, WasteData, ChartDataPoint } from '@/lib/types';
-import { Recycle, ShoppingBag, Users, Trash2, Lightbulb, Target, Wrench } from 'lucide-react';
+import { Recycle, ShoppingBag, Users, Trash2, Lightbulb, Target, Wrench, MapPin, Leaf, LayoutDashboard, GalleryThumbnails } from 'lucide-react';
 
 export const mockProjects: Project[] = [
   {
@@ -46,20 +46,20 @@ export const mockLocalResources: LocalResource[] = [
     name: 'Goonj Dropping Centre – Mayur Vihar Phase 2',
     type: 'Recycling Center',
     address: '277, Pocket C, Mayur Vihar Phase 2, Delhi 110091',
-    contact: '9810523923', // Ashwani Mittal
-    website: undefined,
+    contact: 'Ashwani Mittal – 9810523923; Agam Mittal – 8130341296',
+    website: undefined, // No website provided in the source
     operatingHours: 'Mon–Sat: 11 AM–4 PM; Sun: 8 AM–11 AM',
-    details: 'Accepts clothes, paper, and household materials for reuse and recycling. Additional Contact: Agam Mittal – 8130341296.',
+    details: 'Accepts clothes, paper, and household materials for reuse and recycling.',
     icon: Recycle,
   },
   {
     id: 'jaagruti-recycling',
     name: 'JAAGRUTI – Waste Paper Recycling Services',
     type: 'Recycling Center',
-    address: 'Contact for address',
+    address: 'Contact for address', // Address not specified
     contact: '+919810191625',
     website: 'https://we-recycle.org',
-    operatingHours: undefined,
+    operatingHours: undefined, // Timings not specified
     details: 'Offers waste paper recycling services for organizations and individuals. Email: paper@we-recycle.org.',
     icon: Recycle,
   },
@@ -69,8 +69,8 @@ export const mockLocalResources: LocalResource[] = [
     type: 'Recycling Center',
     address: 'F 27/2, First Floor, Okhla Phase II, Okhla Industrial Area, Delhi',
     contact: '+919599781512',
-    website: undefined,
-    operatingHours: undefined,
+    website: undefined, // No website provided in the source other than zoobop.com as a mention
+    operatingHours: undefined, // Timings not specified
     details: 'Collects paper, plastic, glass, and metal for recycling.',
     icon: Recycle,
   },
@@ -78,10 +78,10 @@ export const mockLocalResources: LocalResource[] = [
     id: 'amul-organic-mayur-vihar',
     name: 'Amul Organic Store – Mayur Vihar',
     type: 'Eco Shop',
-    address: 'Mayur Vihar, Delhi (Contact for full address)',
-    contact: undefined,
-    website: undefined,
-    operatingHours: undefined,
+    address: 'Mayur Vihar, Delhi (Contact for full address)', // Full address not specified
+    contact: undefined, // Contact not specified
+    website: undefined, // Website not specified
+    operatingHours: undefined, // Timings not specified
     details: "Amul's first exclusive organic store in Delhi, offering certified organic products like wheat flour, pulses, and rice.",
     icon: ShoppingBag,
   },
@@ -90,9 +90,9 @@ export const mockLocalResources: LocalResource[] = [
     name: 'A-One Stationery & Gifts Hub',
     type: 'Eco Shop',
     address: '179 A, Pocket C, Mayur Vihar Phase 2, Delhi 110091',
-    contact: undefined,
-    website: 'http://a1stationerygiftshub.link', // Assuming http if not specified
-    operatingHours: undefined,
+    contact: undefined, // Contact not specified
+    website: 'http://a1stationerygiftshub.link',
+    operatingHours: undefined, // Timings not specified
     details: 'Offers eco-friendly stationery items, including recycled paper products and biodegradable pencils.',
     icon: ShoppingBag,
   },
@@ -100,10 +100,10 @@ export const mockLocalResources: LocalResource[] = [
     id: 'kabadi-xpress',
     name: 'Kabadi-Xpress',
     type: 'Community Program',
-    address: 'Doorstep service in Delhi',
+    address: 'Doorstep service in Delhi', // Service area, not a fixed address
     contact: '7065204242',
     website: 'https://kabadi-xpress.com',
-    operatingHours: 'By appointment',
+    operatingHours: 'By appointment', // Inferred
     details: 'Provides doorstep scrap collection services in Delhi, ensuring materials are sent to authentic recycling facilities.',
     icon: Users,
   },
@@ -113,18 +113,18 @@ export const mockLocalResources: LocalResource[] = [
     type: 'Community Program',
     address: 'C-14, Lajpat Nagar III, Second Floor, New Delhi 110024',
     contact: '180030007969',
-    website: undefined,
-    operatingHours: undefined,
+    website: undefined, // Website not specified
+    operatingHours: undefined, // Timings not specified
     details: 'Engages in waste management, recycling, and environmental education programs.',
     icon: Users,
   },
 ];
 
 export const mockWasteMetrics: WasteData[] = [
-  { id: '1', metric: 'Monthly Plastic Waste', value: 1250, unit: 'kg', change: '-5%', icon: Trash2 },
-  { id: '2', metric: 'Recycling Rate', value: '45', unit: '%', change: '+2%', icon: Recycle },
-  { id: '3', metric: 'Alternatives Implemented', value: 15, unit: 'projects', icon: Lightbulb },
-  { id: '4', metric: 'Reduction Goal Progress', value: '60', unit: '% of target', icon: Target },
+  { id: '1', metric: 'Delhi: Monthly Plastic Waste', value: 1250, unit: 'kg', change: '-5%', icon: Trash2 },
+  { id: '2', metric: 'Delhi: Recycling Rate', value: '45', unit: '%', change: '+2%', icon: Recycle },
+  { id: '3', metric: 'Delhi: Eco Initiatives', value: 15, unit: 'projects', icon: Lightbulb },
+  { id: '4', metric: 'Delhi: Waste Reduction Goal', value: '60', unit: '% of target', icon: Target },
 ];
 
 export const mockWasteByTypeData: ChartDataPoint[] = [
