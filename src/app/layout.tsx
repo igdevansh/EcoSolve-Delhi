@@ -25,12 +25,6 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-// Removed metadata export as it's not allowed in client components.
-// export const metadata: Metadata = {
-//   title: 'EcoSolve: Designing a Plastic-Free Tomorrow',
-//   description: 'An application to help reduce plastic use and promote sustainable alternatives.',
-// };
-
 const navItems = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/material-suggestion', label: 'Material Suggestion', icon: Lightbulb },
@@ -45,8 +39,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SidebarProvider defaultOpen collapsible="icon">
-          <Sidebar>
+        <SidebarProvider defaultOpen={false} collapsible="offcanvas">
+          <Sidebar side="left"> {/* Explicitly set side, though "left" is default */}
             <SidebarHeader className="p-4">
               <Link href="/" className="flex items-center gap-2 text-lg font-semibold" style={{color: 'hsl(var(--sidebar-primary))'}}>
                 <Leaf className="h-6 w-6" />
@@ -58,8 +52,8 @@ export default function RootLayout({
             </SidebarContent>
           </Sidebar>
           <SidebarInset>
-            <header className="sticky top-0 z-10 flex h-[57px] items-center gap-4 border-b bg-background px-4 sm:h-auto sm:border-0 sm:bg-transparent sm:px-6 md:hidden">
-               <SidebarTrigger className="md:hidden" />
+            <header className="sticky top-0 z-10 flex h-[57px] items-center gap-4 border-b bg-background px-4 sm:px-6">
+               <SidebarTrigger /> {/* Removed md:hidden to make it always visible */}
             </header>
             <main className="flex-1 p-4 md:p-6 overflow-auto">
               {children}
