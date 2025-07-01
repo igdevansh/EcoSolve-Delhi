@@ -7,7 +7,7 @@ import { ExternalLink, Mail, Clock, Phone } from "lucide-react";
 export default function LocalResourcesPage() {
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-3xl font-bold tracking-tight">Local Eco-Resources</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Local Eco-Resources</h1>
       <p className="text-muted-foreground">
         Find local recycling centers, eco-friendly shops, and community programs near you.
       </p>
