@@ -109,7 +109,7 @@ export default function DashboardPage() {
       
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {wasteMetrics.map((metric) => (
-          <Card key={metric.id} className="shadow-lg">
+          <Card key={metric.id} className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">{metric.metric}</CardTitle>
               {metric.icon && <metric.icon className="h-5 w-5 text-muted-foreground" />}
@@ -131,7 +131,7 @@ export default function DashboardPage() {
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">
-        <Card className="shadow-lg">
+        <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <CardHeader>
             <CardTitle>Delhi: Plastic Waste by Type</CardTitle>
             <CardDescription>Breakdown of commonly found plastic types in Delhi's waste.</CardDescription>
@@ -151,7 +151,7 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className="shadow-lg">
+        <Card className="shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <CardHeader>
             <CardTitle>Delhi: Waste Reduction Progress</CardTitle>
             <CardDescription>Monthly progress towards plastic waste reduction targets in Delhi (in kg).</CardDescription>
