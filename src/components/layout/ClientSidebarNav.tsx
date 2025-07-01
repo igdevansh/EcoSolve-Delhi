@@ -3,12 +3,19 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SidebarMenu, SidebarMenuItem, SidebarMenuButton } from '@/components/ui/sidebar';
-import type { Icon as LucideIcon } from 'lucide-react';
+import { LayoutDashboard, Lightbulb, MapPin, type Icon as LucideIcon } from 'lucide-react';
+
+// Map string identifiers to actual icon components
+const iconMap: Record<string, LucideIcon> = {
+  LayoutDashboard,
+  Lightbulb,
+  MapPin,
+};
 
 type NavItem = {
   href: string;
   label: string;
-  icon: LucideIcon;
+  icon: string; // Now a string identifier
 };
 
 interface ClientSidebarNavProps {
@@ -20,23 +27,26 @@ export function ClientSidebarNav({ navItems }: ClientSidebarNavProps) {
 
   return (
     <SidebarMenu>
-      {navItems.map((item) => (
-        <SidebarMenuItem key={item.label}>
-          <Link href={item.href} legacyBehavior passHref>
-            {/*
-              The `asChild` prop is not directly on SidebarMenuButton in the shadcn/ui/sidebar.
-              The button itself is the component. We pass `data-active` for styling.
-            */}
-            <SidebarMenuButton
-              data-active={pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))}
-              className="justify-start"
-            >
-              <item.icon className="h-5 w-5 mr-2" />
-              <span>{item.label}</span>
-            </SidebarMenuButton>
-          </Link>
-        </SidebarMenuItem>
-      ))}
+      {navItems.map((item) => {
+        const Icon = iconMap[item.icon];
+        if (!Icon) {
+          // Optional: handle case where icon is not found
+          return null; 
+        }
+        return (
+          <SidebarMenuItem key={item.label}>
+            <Link href={item.href} legacyBehavior passHref>
+              <SidebarMenuButton
+                data-active={pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href))}
+                className="justify-start"
+              >
+                <Icon className="h-5 w-5 mr-2" />
+                <span>{item.label}</span>
+              </SidebarMenuButton>
+            </Link>
+          </SidebarMenuItem>
+        );
+      })}
     </SidebarMenu>
   );
 }

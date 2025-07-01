@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
@@ -11,9 +10,14 @@ import {
   SidebarContent,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
-import { Leaf, LayoutDashboard, Lightbulb, MapPin } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 import Link from 'next/link';
 import { ClientSidebarNav } from '@/components/layout/ClientSidebarNav';
+
+export const metadata: Metadata = {
+  title: 'EcoSolve-Delhi',
+  description: 'An application to help reduce plastic use and promote sustainable alternatives in Delhi.',
+};
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -26,9 +30,9 @@ const geistMono = Geist_Mono({
 });
 
 const navItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/material-suggestion', label: 'Material Suggestion', icon: Lightbulb },
-  { href: '/local-resources', label: 'Local Resources', icon: MapPin },
+  { href: '/', label: 'Dashboard', icon: 'LayoutDashboard' },
+  { href: '/material-suggestion', label: 'Material Suggestion', icon: 'Lightbulb' },
+  { href: '/local-resources', label: 'Local Resources', icon: 'MapPin' },
 ];
 
 export default function RootLayout({
